@@ -1286,6 +1286,7 @@ int main(int argc, char **argv_orig, char **envp) {
         afl->fuzz_argv_done = false; // it is false already since calloc
         afl->argvs_list_path = optarg;
         break;
+      // CarpetFuzz end
 
       default:
         if (!show_help) { show_help = 1; }
@@ -1846,6 +1847,7 @@ int main(int argc, char **argv_orig, char **envp) {
 
   // CarpetFuzz modified
   init_argv_list(afl, afl->argvs_list_path);
+  // CarpetFuzz end
 
   setup_custom_mutators(afl);
 
@@ -1919,6 +1921,7 @@ int main(int argc, char **argv_orig, char **envp) {
 
         // CarpetFuzz modified
         afl->fsrv.argvs_file = alloc_printf("%s/.argvs", afl->tmp_dir);
+        // CarpetFuzz end
 
         detect_file_args(argv + optind + 1, afl->fsrv.out_file,
                          &afl->fsrv.use_stdin);
@@ -2711,6 +2714,7 @@ stop_fuzzing:
   ck_free(afl->sync_id);
   // CarpetFuzz modified
   ck_free(afl->fsrv.argvs_file);
+  // CarpetFuzz end
 
   if (afl->q_testcase_cache) { ck_free(afl->q_testcase_cache); }
   afl_state_deinit(afl);

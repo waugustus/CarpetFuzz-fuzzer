@@ -109,6 +109,7 @@ typedef struct afl_forkserver {
   
   // CarpetFuzz modified
   u8 *argvs_file;                       /* argvs file path (Fuzz argv)      */
+  // CarpetFuzz end
 
 
   FILE *plot_file;                      /* Gnuplot output file              */

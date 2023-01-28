@@ -8,7 +8,9 @@ With this fuzzer, CarpetFuzz can fuzz each program with all the prioritized prun
 
 All changes we made can be searched with the pattern,
 ```
-//CarpetFuzz modified
+// CarpetFuzz modified
+***
+// CarpetFuzz end
 ```
 
 ## AFL Version ##

@@ -138,6 +138,7 @@ void afl_fsrv_init_dup(afl_forkserver_t *fsrv_to, afl_forkserver_t *from) {
   fsrv_to->debug = from->debug;
   // CarpetFuzz modified
   fsrv_to->argvs_file = from->argvs_file;
+  // CarpetFuzz end
 
   // These are forkserver specific.
   fsrv_to->out_dir_fd = -1;

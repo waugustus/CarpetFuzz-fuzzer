@@ -177,6 +177,7 @@ struct queue_entry {
       exec_cksum;                       /* Checksum of the execution trace  */
       // CarpetFuzz modified
       u32 argvs_idx;                    /* Enqueue argvs_idx (Fuzz argv)    */
+      // CarpetFuzz end
 
   u8 *trace_mini;                       /* Trace bytes, if kept             */
   u32 tc_ref;                           /* Trace bytes ref count            */
@@ -241,6 +242,7 @@ enum {
   /* 21 */ STAGE_ITS,
   // CarpetFuzz modified
   /* 22 */ STAGE_ARGV,
+  // CarpetFuzz end
 
   STAGE_NUM_MAX
 

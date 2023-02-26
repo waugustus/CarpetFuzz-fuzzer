@@ -20,3 +20,7 @@ We also provide a version of CarpetFuzz based on [AFLplusplus](https://github.co
 ```
 git checkout main
 ```
+
+## Usage
+
+Use `-K` to enbale fuzzing with argv.

@@ -1,6 +1,6 @@
 # CarpetFuzz-fuzzer # 
 
-This repo is [CarpetFuzz](https://github.com/waugustus/CarpetFuzz-fuzzer)'s fuzzer component, which is based on the [AFLplusplus](https://github.com/AFLplusplus/AFLplusplus) repo (commit 96b774261172a2259ab98cc529eba3d7212375cb).
+This repo is [CarpetFuzz](https://github.com/waugustus/CarpetFuzz)'s fuzzer component, which is based on the [AFLplusplus](https://github.com/AFLplusplus/AFLplusplus) repo (commit 96b774261172a2259ab98cc529eba3d7212375cb).
 
 ## Description ##
 

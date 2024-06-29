@@ -923,6 +923,7 @@ void perform_dry_run(afl_state_t *afl) {
           if (!q->was_fuzzed) {
 
             q->was_fuzzed = 1;
+            afl->reinit_table = 1;
             --afl->pending_not_fuzzed;
             --afl->active_items;
 
@@ -931,6 +932,8 @@ void perform_dry_run(afl_state_t *afl) {
           break;
 
         } else {
+
+          static int say_once = 0;
 
           SAYF("\n" cLRD "[-] " cRST
                "The program took more than %u ms to process one of the initial "
@@ -943,10 +946,31 @@ void perform_dry_run(afl_state_t *afl) {
                "just avoid it\n"
                "    altogether, and find one that is less of a CPU hog.\n",
                afl->fsrv.exec_tmout);
+          
+          if (!afl->afl_env.afl_ignore_seed_problems) {
 
-          FATAL("Test case '%s' results in a timeout", fn);
+              FATAL("Test case '%s' results in a timeout", fn);
+
+          }
+
+          say_once = 1;
 
         }
+
+        if (!q->was_fuzzed) {
+
+          q->was_fuzzed = 1;
+          afl->reinit_table = 1;
+          --afl->pending_not_fuzzed;
+          --afl->active_items;
+
+        }
+
+        q->disabled = 1;
+        q->perf_score = 0;
+
+        WARNF("Test case '%s' results in a timeout, skipping", fn);
+        break;
 
       case FSRV_RUN_CRASH:
 
